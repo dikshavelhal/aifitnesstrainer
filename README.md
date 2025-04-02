@@ -52,10 +52,6 @@ Open `index.html` in a browser to access the web interface.
 - Select an exercise and start performing it.
 - The system will count reps, provide real-time feedback, and alert you on incorrect posture.
 
-## Screenshots
-![Screenshot 2025-04-02 182113](https://github.com/user-attachments/assets/cbe79ae5-7f35-4ea6-b69d-e7ea50327578)
-![Screenshot 2025-04-02 182230](https://github.com/user-attachments/assets/eff02377-42a8-41a2-a55b-d055d2fe897a)
-
 ## Future Improvements
 - Integration of **3D pose estimation** for more accurate tracking.
 - AI-powered personalized workout plans.
