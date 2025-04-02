@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/static/exercise1.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercise</title>
+</head>
+<body>
+    <div class="header" style="background-color: white;">  
+        <div class="options">
+            <div id="id1"><a href="/">Home</a></div>
+            <div id="id1"><a href="">About Us</a></div>
+            <div id="id1"><a href="">Services</a></div>
+            <div id="id1"><a href="/contact" >Contact</a></div>
+        </div>
+       
+        <div class="end">
+            <div id="id1"><a href="">Meal Plans</a></div>
+            <div id="id1"><a href="/exercise"><button>Workout</button></a></div>
+        </div>
+    </div>
+
+    <div class="container">
+        <h1>Exercise Page</h1>
+        
+        <!-- Upper Body Section -->
+        <h2>Upper Body</h2>
+        <div class="exercise-buttons">
+            <button id="bicep_curl_right_button">1. Bicep Curls - Right Arm</button>
+            <button id="bicep_curl_left_button">2. Bicep Curls - Left Arm</button>
+            <button id="shoulder_press_button">3. Shoulder Press</button>
+            <button id="push_up_button">4. Push Up</button>
+        </div>
+        
+        <!-- Lower Body Section -->
+        <h2>Lower Body</h2>
+        <div class="exercise-buttons">
+            <button id="squats_button">5. Squats</button>
+            <button id="lunges_button">6. Lunges</button>
+        </div>
+
+        <!-- Full Body Section -->
+        <h2>Full Body</h2>
+        <div class="exercise-buttons">
+            <button id="jumping_jack_button">7. Jumping Jack</button>
+            <button id="high_knees_button">8. High Knees</button>
+        </div>
+
+        <!-- Abs Section -->
+        <h2>Abs</h2>
+        <div class="exercise-buttons">
+            <button id="situps_button">9. Situps</button>
+            <button id="plank_button">10. Plank</button>
+            <button id="frog_press_button">11. Frog Press</button>
+        </div>
+        <div class="exercise-buttons">
+            <button id="exit_button">EXIT</button>
+        </div>
+        
+
+        <div id="video-container">
+            <img id="video-stream" src="" alt="Video Stream">
+        </div>
+    </div>
+
+    <script>
+const videoStream = document.getElementById('video-stream');
+
+const bicepCurlRightButton = document.getElementById('bicep_curl_right_button');
+const bicepCurlLeftButton = document.getElementById('bicep_curl_left_button');
+const shoulderPressButton = document.getElementById('shoulder_press_button');
+const pushUpButton = document.getElementById('push_up_button');
+
+const squatsButton = document.getElementById('squats_button');
+const lungesButton = document.getElementById('lunges_button');
+
+const jumpingJackButton = document.getElementById('jumping_jack_button');
+const highKneesButton = document.getElementById('high_knees_button');
+
+const situpsButton = document.getElementById('situps_button');
+const plankButton = document.getElementById('plank_button');
+const frogPressButton = document.getElementById('frog_press_button');
+
+const exitButton = document.getElementById('exit_button');
+// Add event listeners for each button
+bicepCurlRightButton.addEventListener('click', function() {
+    videoStream.src = "/start_exercise?type=1";
+});
+
+bicepCurlLeftButton.addEventListener('click', function() {
+    videoStream.src = "/start_exercise?type=2";
+});
+
+shoulderPressButton.addEventListener('click', function() {
+    videoStream.src = "/start_exercise?type=3";
+});
+
+pushUpButton.addEventListener('click', function() {
+    videoStream.src = "/start_exercise?type=4";
+});
+
+squatsButton.addEventListener('click', function() {
+    videoStream.src = "/start_exercise?type=5";
+});
+
+lungesButton.addEventListener('click', function() {
+    videoStream.src = "/start_exercise?type=6";
+});
+
+jumpingJackButton.addEventListener('click', function() {
+    videoStream.src = "/start_exercise?type=7";
+});
+
+highKneesButton.addEventListener('click', function() {
+    videoStream.src = "/start_exercise?type=8";
+});
+
+situpsButton.addEventListener('click', function() {
+    videoStream.src = "/start_exercise?type=9";
+});
+
+plankButton.addEventListener('click', function() {
+    videoStream.src = "/start_exercise?type=10";
+});
+
+frogPressButton.addEventListener('click', function() {
+    videoStream.src = "/start_exercise?type=11";
+});
+exitButton.addEventListener('click', function() {
+    videoStream.src = "";
+});
+    </script>
+</body>
+</html>

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Page</title>
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
+    <link rel="stylesheet" href="/static/contact.css"> 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body> 
+  <div class="header" style="background-color: white;">  
+    <div class="options">
+      <div id="id1"><a href="/">Home</a></div>
+      <div id="id1"><a href="">About Us</a></div>
+      <div id="id1"><a href="">Services</a></div>
+      <div id="id1"><a href="" >Contact</a></div>
+  </div>
+        
+  <div class="end">
+    <div id="id1"><a href="">Meal Plans</a></div>
+    <div id="id1"><a href="/bmi"><button>Calculate BMI</button></a></div>
+   
+       </div>
+ <div id="idb"><button ><i class="fa-solid fa-circle-half-stroke"></i></button></div>
+    <script>
+        var idb=document.getElementById("idb");
+        idb.onclick= function(){
+            document.body.classList.toggle("dark-theme");
+        }
+    </script></div>
+    <section class="contact_section">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-7 col-lg-6 ">
+              <div class="form_container">
+                <div class="heading_container ">
+                  <h2>
+                    CONTACT US<br>
+                    ____________________
+                  </h2>
+                </div>
+                <form action="">
+                  <div>
+                    <input  type="text" id="name" placeholder="Name" required/>
+                  </div>
+                  <div>
+                    <input  type="text" id="phone" placeholder="Phone Number (XXX-XXX-XXXX)" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" required/>
+                  </div>
+                  <div>
+                    <input  type="email" id="email"  placeholder="Email" required>
+                    <span id="emailError" class="error"></span>
+                  </div>
+                  <div>
+                    <input  id="message" type="text" placeholder="Leave a message" style="height: 6rem;"/>
+                  </div>
+                  <div class="btn_box">
+                
+                    <button  class="btn" type="submit" onclick="openPopup()">
+                      Send
+                    </button>
+    
+         
+          
+                  </div>
+                </form>
+                <p id="successMessage" class="success"></p>
+              </div>
+            </div>
+            <div class="hehe">
+              <div class="subscribe-box" >
+                <h3>
+                  Subscribe To Our<br>
+                  Newsletter
+                </h3>
+                <p>
+                  Stay on top of your wellness game with Welly!<br>
+                  Subscribe to our newsletter for the latest fitness tips, exclusive offers, and updates on our innovative features.
+                  <br> Join us and make your journey to health and happiness even easier!
+                </p>
+                <form action="">
+                  <input type="email" placeholder="Enter your email"><br>
+                  <button>
+                    Subscribe
+                  </button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <div class="popup" id="popup">
+        <img
+            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSH7OGDM38Acsfwpl_y4Ag21hJZxs2SGaCN-w&usqp=CAU">
+        <h2>Thank You!</h2>
+        <p>Your details have been successfully submitted.Thanks!</p>
+        <button type="button" onclick="closePopup()">OK</button>
+        
+    </div> 
+    
+<script>
+          let popup = document.getElementById("popup");
+          function openPopup() {
+            
+              popup.classList.add("open-popup");
+          }
+          function closePopup() {
+              popup.classList.remove("open-popup");
+          }
+      </script>
+
+</body>
+</html>

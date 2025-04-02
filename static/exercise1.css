@@ -1,0 +1,106 @@
+.root {
+    --primary-color: white;
+    --secondary-color: black;
+    --accent-color: #67c0fc;
+}
+
+* {
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: bold;
+}
+
+.header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    background-color: black;
+    color: white;
+    height: 5rem;
+    box-shadow: 0px 10px 10px -15px #111;
+    font-size: 20px;
+    line-height: 4;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 10;
+}
+
+.options {
+    display: flex;
+    flex-direction: row;
+    width: 500px;
+    justify-content: space-around;
+}
+
+.end {
+    display: flex;
+    flex-direction: row;
+    width: 400px;
+    justify-content: space-around;
+    position: relative;
+    left: 10rem;
+}
+
+.header a {
+    color: black;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.header a:hover {
+    color: rgb(103, 100, 100);
+}
+
+#id1 button {
+    background-color: white;
+    font-size: 20px;
+    border: 1px solid #111;
+    padding: 20px;
+    padding-inline: 40px;
+}
+
+#id1 button:hover {
+    background-color: black;
+    color: white;
+}
+
+#video-container {
+    margin-top: 2em;
+    display: flex;
+    justify-content: center;
+}
+
+#video-stream {
+    border: 2px solid var(--secondary-color); /* Black border */
+    width: 640px;
+    height: 480px;
+    background-color: var(--primary-color); /* White background */
+}
+
+h2 {
+    text-align: center;
+    margin-top: 2em;
+    color: var(--secondary-color);
+}
+
+.exercise-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 1em;
+    margin-top: 1em;
+    flex-wrap: wrap;
+}
+
+.exercise-buttons button {
+    background-color: #67c0fc; /* Blue background */
+    color: var(--primary-color); /* White text */
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.exercise-buttons button:hover {
+    background-color: #2da3f1; /* Darker blue on hover */
+}

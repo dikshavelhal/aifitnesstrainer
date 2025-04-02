@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercise Calorie Tracker</title>
+    
+    <link rel="stylesheet" href="/static/calorie.css">
+
+</head>
+<body> 
+    <div class="header" style="background-color: white;">  
+    <div class="options">
+        <div id="id1"><a href="/">Home</a></div>
+        <div id="id1"><a href="">About Us</a></div>
+        <div id="id1"><a href="">Services</a></div>
+        <div id="id1"><a href="/contact" >Contact</a></div>
+    </div>
+   
+    <div class="end">
+        <div id="id1"><a href="">Meal Plans</a></div>
+        <div id="id1"><a href="/exercise1"><button>Start Workout</button></a></div>
+    </div>
+</div>
+    <div class="container">
+        <h1>Exercise Calorie Tracker</h1>
+
+        <form id="exerciseForm">
+            <div class="section exercise-list">
+                <h2>Upper Body</h2>
+                <label>
+                    <input type="checkbox" data-calories="0.5" name="exercise" value="Bicep Curls - Right Arm">
+                    Bicep Curls - Right Arm (0.5 cal/rep)
+                    <input type="number" class="reps" value="1" disabled>
+                </label>
+                <label>
+                    <input type="checkbox" data-calories="0.5" name="exercise" value="Bicep Curls - Left Arm">
+                    Bicep Curls - Left Arm (0.5 cal/rep)
+                    <input type="number" class="reps" value="1" disabled>
+                </label>
+                <label>
+                    <input type="checkbox" data-calories="0.7" name="exercise" value="Shoulder Press">
+                    Shoulder Press (0.7 cal/rep)
+                    <input type="number" class="reps" value="1" disabled>
+                </label>
+                <label>
+                    <input type="checkbox" data-calories="1" name="exercise" value="Push Up">
+                    Push Up (1 cal/rep)
+                    <input type="number" class="reps" value="1" disabled>
+                </label>
+            </div>
+<hr>
+            <div class="section exercise-list">
+                <h2>Lower Body</h2>
+                <label>
+                    <input type="checkbox" data-calories="0.8" name="exercise" value="Squats">
+                    Squats (0.8 cal/rep)
+                    <input type="number" class="reps" value="1" disabled>
+                </label>
+                <label>
+                    <input type="checkbox" data-calories="0.9" name="exercise" value="Lunges">
+                    Lunges (0.9 cal/rep)
+                    <input type="number" class="reps" value="1" disabled>
+                </label>
+            </div>
+<hr>
+            <div class="section exercise-list">
+                <h2>Full Body</h2>
+                <label>
+                    <input type="checkbox" data-calories="1.2" name="exercise" value="Jumping Jacks">
+                    Jumping Jacks (1.2 cal/rep)
+                    <input type="number" class="reps" value="1" disabled>
+                </label>
+                <label>
+                    <input type="checkbox" data-calories="1.1" name="exercise" value="High Knees">
+                    High Knees (1.1 cal/rep)
+                    <input type="number" class="reps" value="1" disabled>
+                </label>
+            </div>
+<hr>
+            <div class="section exercise-list">
+                <h2>Abs</h2>
+                <label>
+                    <input type="checkbox" data-calories="0.6" name="exercise" value="Situps">
+                    Situps (0.6 cal/rep)
+                    <input type="number" class="reps" value="1" disabled>
+                </label>
+                <label>
+                    <input type="checkbox" data-calories="0.7" name="exercise" value="Plank">
+                    Plank (0.7 cal/rep)
+                    <input type="number" class="reps" value="1" disabled>
+                </label>
+                <label>
+                    <input type="checkbox" data-calories="0.9" name="exercise" value="Frog Press">
+                    Frog Press (0.9 cal/rep)
+                    <input type="number" class="reps" value="1" disabled>
+                </label>
+            </div>
+
+            <button type="button" id="calculate">Calculate Calories Burned</button>
+        </form>
+<div>
+        <h2>Total Calories Burned: <span id="totalCalories">0</span> cal</h2></div>
+    </div>
+
+    <script>
+        // Enable/disable reps input when checkbox is checked/unchecked
+        document.querySelectorAll('input[name="exercise"]').forEach(checkbox => {
+            checkbox.addEventListener('change', function () {
+                const repsInput = this.parentElement.querySelector('.reps');
+                repsInput.disabled = !this.checked;
+                if (!this.checked) repsInput.value = ''; // Reset to blank if unchecked
+            });
+        });
+
+        // Calculate total calories burned
+        document.getElementById('calculate').addEventListener('click', function () {
+            let totalCalories = 0;
+            document.querySelectorAll('input[name="exercise"]:checked').forEach(checkbox => {
+                const caloriesPerRep = parseFloat(checkbox.getAttribute('data-calories'));
+                const reps = parseInt(checkbox.parentElement.querySelector('.reps').value);
+                totalCalories += caloriesPerRep * reps;
+            });
+            document.getElementById('totalCalories').textContent = totalCalories.toFixed(2);
+        });
+    </script>
+
+</body>
+</html>

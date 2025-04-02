@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BMI Calculator</title>
+    <link rel="stylesheet" href="/static/bmi.css">
+</head>
+<body>
+    <div class="header" style="background-color: white;">  
+        <div class="options">
+            <div id="id1"><a href="/">Home</a></div>
+            <div id="id1"><a href="">About Us</a></div>
+            <div id="id1"><a href="">Services</a></div>
+            <div id="id1"><a href="/contact" >Contact</a></div>
+        </div>
+       
+        <div class="end">
+            <div id="id1"><a href="">Meal Plans</a></div>
+            <div id="id1"><a href="/exercise"><button>Workout</button></a></div>
+        </div>
+    </div>
+    <div class="container">
+
+        <h1>BMI Calculator</h1>
+        <div class="calculator">
+            <div class="input-section">
+                <h2>Metric Units</h2>
+                <form id="bmi-form">
+                    <label for="age">Age</label>
+                    <input type="number" id="age" placeholder="Enter your age" min="2" max="120">
+                    
+                    <label>Gender</label>
+                    <div class="gender">
+                        <input type="radio" name="gender" value="male" id="male" checked>
+                        <label for="male">Male</label>
+                        <input type="radio" name="gender" value="female" id="female">
+                        <label for="female">Female</label>
+                    </div>
+
+                    <label for="height-cm">Height (cm)</label>
+                    <input type="number" id="height-cm" placeholder="Enter your height in cm" min="50" max="250">
+
+                    <label for="weight">Weight (kg)</label>
+                    <input type="number" id="weight" placeholder="Enter your weight" min="10" max="200">
+
+                    <button type="button" id="calculate-btn">Calculate</button>
+                    <button type="reset">Clear</button>
+                </form>
+            </div>
+
+            <div class="result-section">
+                <h2>Result</h2>
+                <div id="bmi-result">
+                    <p>BMI = <span id="bmi-value">0</span> kg/m²</p>
+                    <p id="bmi-status">(Status)</p>
+                </div>
+
+                <div class="bmi-categories">
+                    <div class="bmi-category underweight">
+                        Underweight (Below 18.5)
+                    </div>
+                    <div class="bmi-category normal">
+                        Normal (18.5 - 24.9)
+                    </div>
+                    <div class="bmi-category overweight">
+                        Overweight (25 - 29.9)
+                    </div>
+                    <div class="bmi-category obesity">
+                        Obesity (30+)
+                    </div>
+                </div>
+
+                <div class="range">
+                    <p>• Healthy BMI range: 18.5 kg/m² - 25 kg/m²</p>
+                    <p>• BMI Prime: <span id="bmi-prime">0</span></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
+
+<script>
+document.getElementById("calculate-btn").addEventListener("click", function () {
+    // Get height in cm
+    let heightCm = parseFloat(document.getElementById("height-cm").value);
+    const weight = parseFloat(document.getElementById("weight").value);
+
+    // Ensure valid height and weight values are provided
+    if (heightCm > 0 && weight > 0) {
+        const heightM = heightCm / 100; // Convert height from cm to meters
+        const bmi = weight / (heightM * heightM); // Calculate BMI
+        const bmiPrime = bmi / 25; // Calculate BMI Prime (BMI/25)
+
+        // Update the BMI value on the screen
+        document.getElementById("bmi-value").textContent = bmi.toFixed(1);
+
+        // Reset the active category before setting the new one
+        const categories = document.querySelectorAll(".bmi-category");
+        categories.forEach(category => category.classList.remove("active"));
+
+        // Update BMI status and highlight the corresponding category
+        let statusText = "";
+        let statusColor = "";
+
+        if (bmi < 18.5) {
+            statusText = "(Underweight)";
+            statusColor = "#f9ca24"; // Yellow color for underweight
+            document.querySelector(".underweight").classList.add("active"); // Highlight Underweight
+        } else if (bmi >= 18.5 && bmi <= 24.9) {
+            statusText = "(Normal)";
+            statusColor = "#6ab04c"; // Green color for normal
+            document.querySelector(".normal").classList.add("active"); // Highlight Normal
+        } else if (bmi >= 25 && bmi <= 29.9) {
+            statusText = "(Overweight)";
+            statusColor = "#f0932b"; // Orange color for overweight
+            document.querySelector(".overweight").classList.add("active"); // Highlight Overweight
+        } else {
+            statusText = "(Obesity)";
+            statusColor = "#eb4d4b"; // Red color for obesity
+            document.querySelector(".obesity").classList.add("active"); // Highlight Obesity
+        }
+
+        // Update the BMI status and color based on the category
+        document.getElementById("bmi-status").textContent = statusText;
+        document.getElementById("bmi-status").style.color = statusColor;
+
+        // Update the BMI Prime value on the screen
+        document.getElementById("bmi-prime").textContent = bmiPrime.toFixed(1);
+    } else {
+        alert("Please enter valid height and weight values.");
+    }
+});
+</script>
